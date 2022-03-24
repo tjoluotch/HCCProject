@@ -7,7 +7,7 @@ import (
 
 // FileHandler type contains bathroom visits data
 type FileHandler struct {
-	collection *visitData
+	collection *VisitData
 }
 
 // NewFileHandler returns an empty FileHandler type without any visits data
@@ -17,7 +17,7 @@ func NewFileHandler() FileHandler { return FileHandler{collection: nil} }
 // necessary data to the FileHandler collection field
 func (fh FileHandler) CalculateTrendDataPoints() error {
 
-	visitsData, err := populateData()
+	visitsData, err := PopulateData()
 	if err != nil {
 		return err
 	}

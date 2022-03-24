@@ -9,11 +9,11 @@ import (
 	"time"
 )
 
-// populateData reads from the CSV file and populates the visitData type - see visit_data.go with any errors reporting
-func populateData() (visitData, error) {
-	dataV3 := make(visitData)
+// PopulateData reads from the CSV file and populates the VisitData type - see visit_data.go with any errors reporting
+func PopulateData() (VisitData, error) {
+	dataV3 := make(VisitData)
 
-	visitsDataCSV, err := openFile()
+	visitsDataCSV, err := OpenFile(fileName)
 	if err != nil {
 		return nil, err
 	}

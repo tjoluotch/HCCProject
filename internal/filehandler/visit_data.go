@@ -1,7 +1,7 @@
 package filehandler
 
-// visitData maps a date in float64 format to a pointer of type data struct
-type visitData map[float64]*data
+// VisitData maps a date in float64 format to a pointer of type data struct
+type VisitData map[float64]*data
 
 // data contains fields that are used to return output necessary for client application visualisation
 type data struct {

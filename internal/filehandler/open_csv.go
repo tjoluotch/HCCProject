@@ -1,11 +1,20 @@
 package filehandler
 
-import "os"
+import (
+	"errors"
+	"os"
+	"strings"
+)
 
-// openFile opens the CSV file and returns the *File with any error reporting
-func openFile() (*os.File, error) {
+// OpenFile opens the CSV file and returns the *File with any error reporting
+func OpenFile(file string) (*os.File, error) {
+	// if file is incorrect format - not .csv return error
+	if !strings.HasSuffix(file, fileType) {
+		return nil, errors.New(incorrectFmtErr)
+	}
+
 	// open csv file
-	visitsDataCSV, err := os.Open(fileName)
+	visitsDataCSV, err := os.Open(file)
 	if err != nil {
 		return nil, err
 	}
