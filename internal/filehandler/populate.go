@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-// populateData reads from the CSV file and populates the visitData type - see models.go with any errors reporting
+// populateData reads from the CSV file and populates the visitData type - see visit_data.go with any errors reporting
 func populateData() (visitData, error) {
 	dataV3 := make(visitData)
 

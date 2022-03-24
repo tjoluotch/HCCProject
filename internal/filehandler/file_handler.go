@@ -5,17 +5,15 @@ import (
 	"log"
 )
 
-const (
-	FILE_NAME         = "BATHROOM_VISIT_DATA.csv"
-	bathroomValidator = "Bathroom"
-	dateSeparator     = ":"
-)
+type FileHandler struct {
+	collection *visitData
+}
 
 // NewFileHandler returns an empty FileHandler type without any visits data
 func NewFileHandler() FileHandler { return FileHandler{collection: nil} }
 
-// CalculateTrendDataPoints runs a linear regression algorithm on bathroom visits per day and returns encodes the
-// necessary data to FileHandler
+// CalculateTrendDataPoints runs a linear regression algorithm on bathroom visits per day and assigns the
+// necessary data to the FileHandler collection field
 func (fh FileHandler) CalculateTrendDataPoints() error {
 
 	visitsData, err := populateData()
