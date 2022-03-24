@@ -5,6 +5,7 @@ import (
 	"log"
 )
 
+// FileHandler type contains bathroom visits data
 type FileHandler struct {
 	collection *visitData
 }
