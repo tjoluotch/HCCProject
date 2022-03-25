@@ -6,6 +6,7 @@ import (
 	"net/http"
 )
 
+// healthResponse is the json data sent upon a successful health req/resp sequence
 type healthResponse struct {
 	Health string `json:"health"`
 }
