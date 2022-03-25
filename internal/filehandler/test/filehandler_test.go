@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-var _ = Describe("FileHandler test opening of CSV file", func() {
+var _ = Describe("fileHandler package tests", func() {
 	var (
 		fileHandlerObj      filehandler.FileHandler
 		visitData           filehandler.VisitData
@@ -34,6 +34,9 @@ var _ = Describe("FileHandler test opening of CSV file", func() {
 				Expect(file).To(BeNil())
 				Expect(err).To(HaveOccurred())
 			})
+			AfterEach(func() {
+				file.Close()
+			})
 		})
 
 		Context("if file is not the correct format", func() {
@@ -45,6 +48,9 @@ var _ = Describe("FileHandler test opening of CSV file", func() {
 				Expect(err).To(HaveOccurred())
 				Expect(err).Should(MatchError(errors.New("file format incorrect - expecting .csv")))
 			})
+			AfterEach(func() {
+				file.Close()
+			})
 		})
 
 		Context("if file is opened successfully", func() {
@@ -55,6 +61,9 @@ var _ = Describe("FileHandler test opening of CSV file", func() {
 				Expect(file).ToNot(BeNil())
 				Expect(err).To(BeNil())
 				Expect(err).ToNot(HaveOccurred())
+			})
+			AfterEach(func() {
+				file.Close()
 			})
 		})
 	})
