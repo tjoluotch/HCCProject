@@ -7,11 +7,11 @@ import (
 
 // FileHandler type contains bathroom visits data
 type FileHandler struct {
-	collection *VisitData
+	Collection *VisitData
 }
 
 // NewFileHandler returns an empty FileHandler type without any visits data
-func NewFileHandler() FileHandler { return FileHandler{collection: nil} }
+func NewFileHandler() FileHandler { return FileHandler{Collection: nil} }
 
 // CalculateTrendDataPoints runs a linear regression algorithm on bathroom visits per day and assigns the
 // necessary data to the FileHandler collection field
@@ -48,6 +48,6 @@ func (fh FileHandler) CalculateTrendDataPoints() error {
 		log.Printf("%+v\n", obj)
 	}
 
-	fh.collection = &visitsData
+	fh.Collection = &visitsData
 	return nil
 }
