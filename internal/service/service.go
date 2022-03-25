@@ -7,7 +7,7 @@ import (
 
 // Service holds all the dependencies needed to start and execute requests on the server
 type Service struct {
-	fh     filehandler.FileHandler
+	Fh     filehandler.FileHandler
 	router *mux.Router
 }
 

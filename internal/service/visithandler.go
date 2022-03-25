@@ -7,8 +7,8 @@ import (
 	"net/http"
 )
 
-// visitResponse contains the json data for a successful responses regarding client visualisation data points
-type visitResponse struct {
+// VisitResponse contains the json data for a successful responses regarding client visualisation data points
+type VisitResponse struct {
 	Data []filehandler.Data `json:"data"`
 }
 
@@ -20,9 +20,9 @@ type errorResponse struct {
 // VisitsHandler is responsible processing the bathroom visits file and returning bathroom visits data to the client.
 // Accessed through /{version}/visits
 func (s *Service) VisitsHandler() http.HandlerFunc {
-	visitData, err := s.fh.CalculateTrendDataPoints()
+	visitData, err := s.Fh.CalculateTrendDataPoints()
 	var dataPoints []filehandler.Data
-	response := visitResponse{}
+	response := VisitResponse{}
 
 	return func(resp http.ResponseWriter, req *http.Request) {
 		// if we failed to calculate trend data return 500 response and errorResponse type
@@ -30,6 +30,7 @@ func (s *Service) VisitsHandler() http.HandlerFunc {
 			log.Println(err)
 			resp.WriteHeader(http.StatusInternalServerError)
 			_ = json.NewEncoder(resp).Encode(&errorResponse{Error: err.Error()})
+			return
 		}
 
 		// populate data for response object

@@ -12,6 +12,6 @@ const (
 )
 
 var (
-	visitsURI = fmt.Sprintf("%s%s", version, visitsEndpoint)
-	healthURI = fmt.Sprintf("%s%s", version, healthEndpoint)
+	VisitsURI = fmt.Sprintf("%s%s", version, visitsEndpoint)
+	HealthURI = fmt.Sprintf("%s%s", version, healthEndpoint)
 )
