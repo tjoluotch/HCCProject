@@ -1,13 +1,11 @@
 package main
 
-import (
-	"HCCProject/internal/filehandler"
-	"log"
-)
+import "HCCProject/internal/service"
 
 func main() {
-	fh := filehandler.NewFileHandler()
-	if err := fh.CalculateTrendDataPoints(); err != nil {
-		log.Fatal(err)
-	}
+	//fh := filehandler.NewFileHandler()
+	//if err := fh.CalculateTrendDataPoints(); err != nil {
+	//	log.Fatal(err)
+	//}
+	service.Start()
 }
