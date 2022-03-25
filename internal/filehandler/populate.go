@@ -56,16 +56,16 @@ func PopulateData() (VisitData, error) {
 
 			// if this is the 1st visit to the bathroom on a particular day, set the value to 1 and continue onto next iteration
 			if dataV3[dateAsFloat] == nil {
-				dataV3[dateAsFloat] = &data{}
-				dataV3[dateAsFloat].bathroomVisitCount = 1
-				dataV3[dateAsFloat].dateAsString = dateAsString
+				dataV3[dateAsFloat] = &Data{}
+				dataV3[dateAsFloat].BathroomVisitCount = 1
+				dataV3[dateAsFloat].DateAsString = dateAsString
 				continue
 			}
 
 			// bathroom visit has already happened on this day so iterate count and reassign new value
-			totalVisitPerDay := dataV3[dateAsFloat].bathroomVisitCount
+			totalVisitPerDay := dataV3[dateAsFloat].BathroomVisitCount
 			totalVisitPerDay += 1
-			dataV3[dateAsFloat].bathroomVisitCount = totalVisitPerDay
+			dataV3[dateAsFloat].BathroomVisitCount = totalVisitPerDay
 		}
 	}
 	return dataV3, nil

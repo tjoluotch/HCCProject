@@ -76,11 +76,12 @@ var _ = Describe("FileHandler test opening of CSV file", func() {
 		Context("calculated trend data successfully", func() {
 			BeforeEach(func() {
 				fileHandlerObj = filehandler.NewFileHandler()
-				err = fileHandlerObj.CalculateTrendDataPoints()
+				visitData, err = fileHandlerObj.CalculateTrendDataPoints()
 			})
 			It("calculated trend data & populated collection within filehandler", func() {
 				Expect(err).ToNot(HaveOccurred())
 				Expect(err).To(BeNil())
+				Expect(visitData).ToNot(BeEmpty())
 			})
 		})
 	})
